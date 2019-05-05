@@ -1,0 +1,9 @@
+*.js linguist-language=javascript
+*.css linguist-language=css
+*.html linguist-language=html
+*.java linguist-language=java
+*.py linguist-language=python
+*.pkl linguist-language=python
+*.txt linguist-language=python
+*.xls linguist-language=python
+*.xlsx linguist-language=python
