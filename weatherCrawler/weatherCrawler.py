@@ -65,7 +65,7 @@ def get_weather_data(city='hangzhou', time_func_name=get_month_period, *args):
                 weather_df = pd.read_excel(weatherDataFilePath, header=0)
                 # 不完整月份的天气数据补充
                 current_date = datetime.datetime.strptime(date_list[index], '%Y%m')
-                if weather_df.shape[0] < calendar.monthrange(current_date.year, current_date.month):
+                if weather_df.shape[0] < calendar.monthrange(current_date.year, current_date.month)[1]:
                     weather_df = pd.DataFrame(pd.read_html(url, encoding='GBK', header=0)[0])
                     weather_df.to_excel(weatherDataFilePath, index=None)
             except Exception:
