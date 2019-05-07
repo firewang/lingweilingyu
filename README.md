@@ -10,3 +10,9 @@ files of Wechat public account lingweilingyu
 2. [pandas.read_html](https://github.com/firewang/lingweilingyu/tree/master/weatherCrawler)
     
     pandas read_html() 爬取表格类型的网页数据
+    
+3. [apriori](https://github.com/firewang/lingweilingyu/tree/master/associationRules)
+    
+   [mushroom-dataset](http://archive.ics.uci.edu/ml/datasets/Mushroom)
+    
+    Apriori实现
