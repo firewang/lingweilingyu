@@ -3,6 +3,8 @@ files of Wechat public account lingweilingyu
 
 ![可扫二维码关注公众号](https://github.com/firewang/lingweilingyu/blob/master/qrcode_for_lingweilingyu.jpg)
 
+<img src="https://github.com/firewang/lingweilingyu/blob/master/qrcode_for_lingweilingyu.jpg" alt="二维码" title="公众号二维码" />
+
 微信公众号--零维领域的文件列表
 
 1. [pandas.Series.plot visualization](https://github.com/firewang/lingweilingyu/blob/master/pandas.Series.plot.ipynb)
