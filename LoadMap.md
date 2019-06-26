@@ -21,6 +21,7 @@
 [机器学习基石](https://www.coursera.org/instructor/htlin)| NTU | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](https://www.csie.ntu.edu.tw/~htlin/course/mlfound16fall/)
 [机器学习技法](https://www.coursera.org/instructor/htlin)| NTU | 暂无 | [链接](https://www.csie.ntu.edu.tw/~htlin/course/ml15fall/)
 [机器学习](https://www.youtube.com/watch?v=mbyG85GZ0PI&index=1&list=PLD63A284B7615313A)| Caltech | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](http://work.caltech.edu/lectures.html)
+机器学习100天| | [https://github.com/MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)| 
 
 ## 业务知识
 ### 互联网思维
@@ -39,3 +40,5 @@ Kaggle | [https://www.kaggle.com/](https://www.kaggle.com/)  | 全球数据科�
 资源 | 链接 | 备注 | 内容等级 
 :-- | :--: | :-- | :--:
 机器学习路径 | [https://github.com/JustFollowUs/Machine-Learning](https://github.com/JustFollowUs/Machine-Learning) | 南京大学LAMDA实验组推荐 | 4
+AI 算法工程师手册 | [http://www.huaxiaozhuan.com/](http://www.huaxiaozhuan.com/) | 华校专 | 阿里、智易算法工程师 | 4
+简明数据科学学习路径 | [https://github.com/virgili0/Virgilio](https://github.com/virgili0/Virgilio) | 职业、技术、工具 | 4
