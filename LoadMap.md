@@ -24,8 +24,20 @@
 机器学习100天| | [https://github.com/MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)| 
 
 ## 业务知识
-### 互联网思维
+* [通用思维方式 ](https://github.com/firewang/lingweilingyu/blob/master/contents/%E4%BA%92%E8%81%94%E7%BD%91%E6%96%B9%E6%B3%95%E8%AE%BA.md)
+
+### 互联网方法论
+* [互联网思维方式](https://github.com/firewang/lingweilingyu/blob/master/contents/%E4%BA%92%E8%81%94%E7%BD%91%E6%96%B9%E6%B3%95%E8%AE%BA.md)
+* [运营思维方式](https://github.com/firewang/lingweilingyu/blob/master/contents/%E4%BA%92%E8%81%94%E7%BD%91%E6%96%B9%E6%B3%95%E8%AE%BA.md)
+
 ### 数据分析技法
+* [数据分析思维方式](https://github.com/firewang/lingweilingyu/blob/master/contents/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA.md)
+
+* [数据分析方法论](https://github.com/firewang/lingweilingyu/blob/master/contents/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA.md)
+
+* [数据分析方法](https://github.com/firewang/lingweilingyu/blob/master/contents/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA.md)
+
+  
 
 ## 商业实战
 ### 竞赛类网站
@@ -36,9 +48,18 @@ Kaggle | [https://www.kaggle.com/](https://www.kaggle.com/)  | 全球数据科�
 
 ## 数据支撑
 
+| 数据集                                                       | 领域 | 类目 | 备注 |
+| ------------------------------------------------------------ | ---- | ---- | ---- |
+| [加州大学欧文分校机器学习数据库](http://archive.ics.uci.edu/ml/index.php) | 综合 | 综合 |      |
+|                                                              |      |      |      |
+|                                                              |      |      |      |
+
+
+
 ## X. 综合性资源
 资源 | 链接 | 备注 | 内容等级 
 :-- | :--: | :-- | :--:
 机器学习路径 | [https://github.com/JustFollowUs/Machine-Learning](https://github.com/JustFollowUs/Machine-Learning) | 南京大学LAMDA实验组推荐 | 4
-AI 算法工程师手册 | [http://www.huaxiaozhuan.com/](http://www.huaxiaozhuan.com/) | 华校专 | 阿里、智易算法工程师 | 4
+AI 算法工程师手册 | [http://www.huaxiaozhuan.com/](http://www.huaxiaozhuan.com/) | 华校专：阿里、智易算法工程师 | 4
 简明数据科学学习路径 | [https://github.com/virgili0/Virgilio](https://github.com/virgili0/Virgilio) | 职业、技术、工具 | 4
+南瓜书PumpkinBook|[https://github.com/datawhalechina/pumpkin-book](https://github.com/datawhalechina/pumpkin-book)| 西瓜书公式推导|3
