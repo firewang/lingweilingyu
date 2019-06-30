@@ -18,10 +18,14 @@
 ## 技术知识
 内容 | 机构 | 参考资源 | Notes等其他资料 | 公众号对应内容 | 备注
 :-- | :--: | :--: | :--: | :-- | :--
-[机器学习基石](https://www.coursera.org/instructor/htlin)| NTU | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](https://www.csie.ntu.edu.tw/~htlin/course/mlfound16fall/)
-[机器学习技法](https://www.coursera.org/instructor/htlin)| NTU | 暂无 | [链接](https://www.csie.ntu.edu.tw/~htlin/course/ml15fall/)
-[机器学习](https://www.youtube.com/watch?v=mbyG85GZ0PI&index=1&list=PLD63A284B7615313A)| Caltech | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](http://work.caltech.edu/lectures.html)
-机器学习100天| | [https://github.com/MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)| 
+[机器学习基石](https://www.coursera.org/instructor/htlin)| NTU | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](https://www.csie.ntu.edu.tw/~htlin/course/mlfound16fall/)||
+周志华 《机器学习》| 南京大学 | [清华大学出版社](http://www.tup.tsinghua.edu.cn/booksCenter/book_06402701.html) | [书中内容勘误修订](http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm)   [周志华主页](<http://cs.nju.edu.cn/zhouzh/index.htm>) ||
+[机器学习技法](https://www.coursera.org/instructor/htlin)| NTU | 暂无 | [链接](https://www.csie.ntu.edu.tw/~htlin/course/ml15fall/)||
+[机器学习](https://www.youtube.com/watch?v=mbyG85GZ0PI&index=1&list=PLD63A284B7615313A)| Caltech | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](http://work.caltech.edu/lectures.html)||
+机器学习100天| | [https://github.com/MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)| ||
+| | | ||
+| | | ||
+| | | ||
 
 ## 业务知识
 * [通用思维方式 ](https://github.com/firewang/lingweilingyu/blob/master/contents/%E4%BA%92%E8%81%94%E7%BD%91%E6%96%B9%E6%B3%95%E8%AE%BA.md)
@@ -54,6 +58,10 @@ Kaggle | [https://www.kaggle.com/](https://www.kaggle.com/)  | 全球数据科�
 |                                                              |      |      |      |
 |                                                              |      |      |      |
 
+## 职业规划
+
+
+
 
 
 ## X. 综合性资源
@@ -63,3 +71,31 @@ Kaggle | [https://www.kaggle.com/](https://www.kaggle.com/)  | 全球数据科�
 AI 算法工程师手册 | [http://www.huaxiaozhuan.com/](http://www.huaxiaozhuan.com/) | 华校专：阿里、智易算法工程师 | 4
 简明数据科学学习路径 | [https://github.com/virgili0/Virgilio](https://github.com/virgili0/Virgilio) | 职业、技术、工具 | 4
 南瓜书PumpkinBook|[https://github.com/datawhalechina/pumpkin-book](https://github.com/datawhalechina/pumpkin-book)| 西瓜书公式推导|3
+
+## XI. 会议期刊
+
+| 名称                                              | 链接                                                         | 备注                  | 内容等级 |
+| ------------------------------------------------- | ------------------------------------------------------------ | --------------------- | -------- |
+| NIPS                                              | [https://nips.cc/](https://nips.cc/)                         | 综合人工智能会议      | 5        |
+| ICML                                              | [https://icml.cc/](https://icml.cc/)                         | 机器学习会议          | 5        |
+| AAAI                                              |                                                              |                       |          |
+| IJCAI                                             | [http://www.ijcai.org/](http://www.ijcai.org/)               | 人工智能综合会议      | 5        |
+| CCML                                              | [http://bdiri.gzu.edu.cn/ccml2019](http://bdiri.gzu.edu.cn/ccml2019) | 中国机器学习会议 2019 | 4        |
+| COLT                                              |                                                              | 国际学习理论会议      |          |
+|                                                   |                                                              |                       |          |
+| KDD                                               | [https://www.kdd.org/](https://www.kdd.org/)                 | 顶级数据挖掘论文      | 5        |
+| ICDM                                              |                                                              |                       |          |
+| SIGIR                                             | [http://sigir.org/sigir2016/short-papers/](http://sigir.org/sigir2016/short-papers) | 顶级推荐系统论文      | 5        |
+|                                                   |                                                              |                       |          |
+| Journal of Machine Learning Research              |                                                              | 最重要的学术期刊      | 5        |
+| Machine Learning                                  |                                                              | 最重要的学术期刊      | 5        |
+| Artificial Intelligence                           |                                                              |                       |          |
+| Journal of Artificial Intelligence Research       |                                                              |                       |          |
+| ACM Transactions on Knowledge Discovery from Data |                                                              | 数据挖掘重要期刊      | 5        |
+| Annals of Statistics                              |                                                              | 统计学领域重要期刊    | 5        |
+|                                                   |                                                              |                       |          |
+|                                                   |                                                              |                       |          |
+|                                                   |                                                              |                       |          |
+|                                                   |                                                              |                       |          |
+
+​									
