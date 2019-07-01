@@ -12,6 +12,8 @@
 
   例：（色泽=青绿；根蒂=蜷缩；敲声=浊响）
 
+  一般以 $D={x_1,x_2, \dots , x_m}$ 表示包含 $m$ 个示例的数据集
+
 * 数据集（data set）
 
   例：（色泽=青绿；根蒂=蜷缩；敲声=浊响），（色泽=乌黑；根蒂=稍蜷；敲声=沉闷），（色泽=浅白；根蒂=硬挺；敲声=清脆），……
@@ -19,9 +21,13 @@
 * 属性/特征（attribute / feature）
   例：色泽、根蒂、敲声
 
+  一个示例由 $d$ 个特征描述，如示例 $x_i=(x_{i1}；x_{i2}；\dots； x_{id})$ 
+  
 * 属性值（attribute value）
   例：青绿、乌黑、浅白
 
+  如示例 $x_i=(x_{i1}；x_{i2}；\dots； x_{id})$ ，其中 $x_{id}$ 表示第 $i$ 个示例的第 $d$ 个特征的值
+  
 * 属性空间/样本空间/输入空间（attribute space / sample space）
   属性张成的空间称为“属性空间”（attribute space）、“样本空间”（sample space）或“输入空间”，例：我们把“色泽”、“根蒂”、“敲声”作为三个坐标轴，则它们张成一个用于描述西瓜的三维空间，每个西瓜都可在这个空间中找到自己的坐标位置。
 
@@ -122,16 +128,18 @@
   
 
   附图
-
-![img](https://github.com/firewang/lingweilingyu/blob/master/static/img/hypothesis_space.jpeg)
+  
+  ![img](https://github.com/firewang/lingweilingyu/raw/master/static/img/hypothesis_space.jpeg)
 
 * 版本空间（version space）
 
   现实问题中我们常面临很大的假设空间，但学习过程是基于有限样本训练集进行的。因此，可能有多个假设与训练集一致，即存在着一个与训练集一致的“假设集合”，我们称之为“版本空间”（version space）。例如在西瓜问题中，与表1.1训练集所对应的版本空间如图1.2所示。
 
-        - 附图
-
-![img](https://github.com/firewang/lingweilingyu/blob/master/static/img/version_space.jpeg)
+  
+  
+  附图
+  
+  ![img](https://github.com/firewang/lingweilingyu/raw/master/static/img/version_space.jpeg)
 
 ## 1.4 归纳偏好
 
