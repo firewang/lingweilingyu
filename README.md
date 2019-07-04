@@ -5,7 +5,7 @@ files of Wechat public account lingweilingyu
 
 ![可扫二维码关注公众号](https://github.com/firewang/lingweilingyu/blob/master/qrcode_for_lingweilingyu.jpg)
 
-## LoadMap 
+## Roadmap 
 [数据科学家养成路径引导](https://github.com/firewang/lingweilingyu/blob/master/LoadMap.md)
 
 ## 微信公众号--零维领域的文件列表
