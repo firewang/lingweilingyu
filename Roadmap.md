@@ -24,7 +24,7 @@
 [机器学习](https://www.youtube.com/watch?v=mbyG85GZ0PI&index=1&list=PLD63A284B7615313A)| Caltech | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](http://work.caltech.edu/lectures.html)||
 机器学习100天| | [https://github.com/MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)| ||
 | | | ||
-特征工程| 图灵 | [《特征工程入门与实践》](http://www.ituring.com.cn/book/2606) | ||锡南·厄兹代米尔（Sinan Ozdemir）：数据科学家、数学家、约翰·霍普金斯大学讲师，Kylie.ai公司联合创始人、CTO，在应用数据挖掘、功能分析和算法开发做出基于数据和知识的决策方面拥有丰富的经验
+特征工程| 图灵 | [《特征工程入门与实践》](http://www.ituring.com.cn/book/2606) [英文版github](https://github.com/PacktPublishing/Feature-Engineering-Made-Easy) | ||锡南·厄兹代米尔（Sinan Ozdemir）：数据科学家、数学家、约翰·霍普金斯大学讲师，Kylie.ai公司联合创始人、CTO，在应用数据挖掘、功能分析和算法开发做出基于数据和知识的决策方面拥有丰富的经验
 | | | ||
 
 ## 业务知识
