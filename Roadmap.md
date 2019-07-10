@@ -19,7 +19,7 @@
 内容 | 机构 | 参考资源 | Notes等其他资料 | 公众号对应内容 | 备注
 :-- | :--: | :--: | :--: | :-- | :--
 [机器学习基石](https://www.coursera.org/instructor/htlin)| NTU | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](https://www.csie.ntu.edu.tw/~htlin/course/mlfound16fall/)||
-周志华 《机器学习》| 南京大学 | [清华大学出版社](http://www.tup.tsinghua.edu.cn/booksCenter/book_06402701.html) | [书中内容勘误修订](http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm)   [周志华主页](<http://cs.nju.edu.cn/zhouzh/index.htm>) ||
+周志华 《机器学习》| 南京大学 | [清华大学出版社](http://www.tup.tsinghua.edu.cn/booksCenter/book_06402701.html) | [书中内容勘误修订](http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm)   [周志华主页](<http://cs.nju.edu.cn/zhouzh/index.htm>) |[Machine_Learning_Zhi-Hua_ Zhou](./contents/Machine_Learning_Zhi-Hua_Zhou.md)|
 [机器学习技法](https://www.coursera.org/instructor/htlin)| NTU | 暂无 | [链接](https://www.csie.ntu.edu.tw/~htlin/course/ml15fall/)||
 [机器学习](https://www.youtube.com/watch?v=mbyG85GZ0PI&index=1&list=PLD63A284B7615313A)| Caltech | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](http://work.caltech.edu/lectures.html)||
 机器学习100天| | [https://github.com/MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)| ||

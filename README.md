@@ -14,7 +14,7 @@ files of Wechat public account lingweilingyu
 pandas Series plot() 可视化 | [pandas.Series.plot.ipynb](contents/pandas.Series.plot.ipynb) |
 pandas read_html() 爬取表格类型的网页数据 | [weatherCrawler/weatherCrawler.py](contents/weatherCrawler/weatherCrawler.py) |
 关联分析：Apriori实现 | [associationRules/Apriori.py](contents/associationRules/Apriori.py) </br> [mushroom-dataset](http://archive.ics.uci.edu/ml/datasets/Mushroom) |
-《机器学习》--周志华 | [Machine Learning](contents/Machine Learning of Zhi-Hua Zhou.md) |
+《机器学习》--周志华 | [Machine Learning](./contents/Machine_Learning_Zhi-Hua_Zhou.md) |
 sklearn顶层设计思路 | [sklearn.md](contents/sklearn.md) |
 
 ​    
