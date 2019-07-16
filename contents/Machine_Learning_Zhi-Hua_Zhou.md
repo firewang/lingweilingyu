@@ -346,7 +346,64 @@ $$
 
 ### 2.3.1 错误率与精度
 
+错误率 error rate：
+$$
+E(f ; D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(f\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)
+$$
+其中 $\mathbb{I}(f(x_i)\neq y_i)$ 为指示函数 indicator function ，若表达式为真则取值为1，否则取值0
+
+精度 accuracy：
+$$
+\begin{aligned} \operatorname{acc}(f ; D) &=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(f\left(\boldsymbol{x}_{i}\right)=y_{i}\right) \\ &=1-E(f ; D) \end{aligned}
+$$
+
+
+更一般的，对于数据分布 $\mathcal{D}$ 和概率密度函数 $\mathcal{p}(\cdot)$ ，错误率和精度可分别描述为
+
+[comment]: 后续需要补充说明
+
+$$
+E(f ; \mathcal{D})=\int_{\boldsymbol{x} \sim \mathcal{D}} \mathbb{I}(f(\boldsymbol{x}) \neq y) p(\boldsymbol{x}) \mathrm{d} \boldsymbol{x} \tag{2.6}
+$$
+
+$$
+\begin{aligned} \operatorname{acc}(f ; \mathcal{D}) &=\int_{\boldsymbol{x} \sim \mathcal{D}} \mathbb{I}(f(\boldsymbol{x})=y) p(\boldsymbol{x}) \mathrm{d} \boldsymbol{x} \\ &=1-E(f ; \mathcal{D}) \end{aligned} \tag{2.7}
+$$
+
+
+
 ### 2.3.2 查准率、查全率与F1（混淆矩阵）
+
+当需要反映的不是判断正确与否的能力，而是正例、反例查出的准确率时，就不能用错误率和精度作为判断分类任务模型的性能度量了，查准率（准确率） precision 和查全率（召回率） recall 应运而生。（因为各个翻译版本的不同，下文都以英文表示）
+
+为了说明 precision 和 recall，我们引入混淆矩阵 confusion matrix。可以说，confusion matrix 很直观地表示了各个指标的定义、来源以及作用意义。
+
+以 [维基百科](https://en.wikipedia.org/wiki/Confusion_matrix) 给出的表格释义最为直观与全面
+
+![confusion_matrix](../static/img/confusion_matrix.png)
+
+其中，True condition 表示数据集中各数据样本的真实标记值，一般即为 $y$ ，Predicted condition 表示学习算法给出的预测值。
+
+> True positive (TP)：真正例，即真实值为1，预测为1
+
+> False positive(FP)：假正例，即真实值为0，预测为1
+
+> False negtive(FN)：假反例，即真实值为1，预测为0
+
+> True negtive(TN):  真反例，即真实值为0，预测为0
+
+有了confusion matrix ，我们就可以很直观地知道其他指标的定义了
+
+> precision(Positive predictive value,PPV) ：预测为正例的样本中真正例的比例
+> $$
+> \text{Precision} = \frac{\sum \text { True positive }}{\sum \text { Predicted condition positive }}=\frac{\text{真正例=TP}}{\text{预测为正例=TP+FP}}
+> $$
+
+> Recall(True positive rate, TPR, Sensitivity) ：真实值为正例中被预测为正例的比例
+> $$
+> \text{Recall}=\frac{\sum \text { True positive }}{\sum \text { Condition positive }} = \frac{\text {真正例=TP}}{\text {真实值为正例=TP+FN}}
+> $$
+> 
 
 ### 2.3.3 ROC与AUC
 
