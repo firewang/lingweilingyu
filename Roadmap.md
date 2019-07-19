@@ -16,13 +16,13 @@
 
 
 ## 技术知识
-内容 | 机构 | 参考资源 | Notes等其他资料 | 公众号对应内容 | 备注
+内容 | 机构 | 参考资源 | 其他资料 | 公众号对应内容 | 备注
 :-- | :--: | :--: | :--: | :-- | :--
 [机器学习基石](https://www.coursera.org/instructor/htlin)| NTU | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](https://www.csie.ntu.edu.tw/~htlin/course/mlfound16fall/)||
 周志华 《机器学习》| 南京大学 | [清华大学出版社](http://www.tup.tsinghua.edu.cn/booksCenter/book_06402701.html) | [书中内容勘误修订](http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm)   [周志华主页](<http://cs.nju.edu.cn/zhouzh/index.htm>) |[Machine_Learning_Zhi-Hua_ Zhou](./contents/Machine_Learning_Zhi-Hua_Zhou.md)|
 [机器学习技法](https://www.coursera.org/instructor/htlin)| NTU | 暂无 | [链接](https://www.csie.ntu.edu.tw/~htlin/course/ml15fall/)||
 [机器学习](https://www.youtube.com/watch?v=mbyG85GZ0PI&index=1&list=PLD63A284B7615313A)| Caltech | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](http://work.caltech.edu/lectures.html)||
-机器学习100天| | [https://github.com/MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code)| ||
+机器学习100天| | [MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code) | ||
 | | | ||
 特征工程| 图灵 | [《特征工程入门与实践》](http://www.ituring.com.cn/book/2606) [英文版github](https://github.com/PacktPublishing/Feature-Engineering-Made-Easy) | ||锡南·厄兹代米尔（Sinan Ozdemir）：数据科学家、数学家、约翰·霍普金斯大学讲师，Kylie.ai公司联合创始人、CTO，在应用数据挖掘、功能分析和算法开发做出基于数据和知识的决策方面拥有丰富的经验
 | | | ||
@@ -72,33 +72,31 @@ Kaggle | [https://www.kaggle.com/](https://www.kaggle.com/)  | 全球数据科�
 AI 算法工程师手册 | [http://www.huaxiaozhuan.com/](http://www.huaxiaozhuan.com/) | 华校专：阿里、智易算法工程师 | 4
 简明数据科学学习路径 | [https://github.com/virgili0/Virgilio](https://github.com/virgili0/Virgilio) | 职业、技术、工具 | 4
 简明机器学习课程 | [machinelearningmindset/machine-learning-course](https://github.com/machinelearningmindset/machine-learning-course) | github源 | 
-南瓜书PumpkinBook|[https://github.com/datawhalechina/pumpkin-book](https://github.com/datawhalechina/pumpkin-book)| 西瓜书公式推导|3
+南瓜书PumpkinBook|[datawhalechina/pumpkin-book](https://github.com/datawhalechina/pumpkin-book)| 西瓜书公式推导|3
 Pycharm说明文档|[https://www.jetbrains.com/help/pycharm/sync-with-a-remote-repository.html](https://www.jetbrains.com/help/pycharm/sync-with-a-remote-repository.html)| 英文说明文档 |
 
 ## XI. 会议期刊
 
-| 名称                                              | 链接                                                         | 备注                  | 内容等级 |
-| ------------------------------------------------- | ------------------------------------------------------------ | --------------------- | -------- |
-| NIPS                                              | [https://nips.cc/](https://nips.cc/)                         | 综合人工智能会议      | 5        |
-| ICML                                              | [https://icml.cc/](https://icml.cc/)                         | 机器学习会议          | 5        |
-| AAAI                                              |                                                              |                       |          |
-| IJCAI                                             | [http://www.ijcai.org/](http://www.ijcai.org/)               | 人工智能综合会议      | 5        |
-| CCML                                              | [http://bdiri.gzu.edu.cn/ccml2019](http://bdiri.gzu.edu.cn/ccml2019) | 中国机器学习会议 2019 | 4        |
-| COLT                                              |                                                              | 国际学习理论会议      |          |
-|                                                   |                                                              |                       |          |
-| KDD                                               | [https://www.kdd.org/](https://www.kdd.org/)                 | 顶级数据挖掘论文      | 5        |
-| ICDM                                              |                                                              |                       |          |
-| SIGIR                                             | [http://sigir.org/sigir2016/short-papers/](http://sigir.org/sigir2016/short-papers) | 顶级推荐系统论文      | 5        |
-|                                                   |                                                              |                       |          |
-| Journal of Machine Learning Research              |                                                              | 最重要的学术期刊      | 5        |
-| Machine Learning                                  |                                                              | 最重要的学术期刊      | 5        |
-| Artificial Intelligence                           |                                                              |                       |          |
-| Journal of Artificial Intelligence Research       |                                                              |                       |          |
-| ACM Transactions on Knowledge Discovery from Data |                                                              | 数据挖掘重要期刊      | 5        |
-| Annals of Statistics                              |                                                              | 统计学领域重要期刊    | 5        |
-|                                                   |                                                              |                       |          |
-|                                                   |                                                              |                       |          |
-|                                                   |                                                              |                       |          |
-|                                                   |                                                              |                       |          |
-
-​									
+| 名称                                              | 链接                                                         | 备注                                                    | 内容等级 |
+| ------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------- | -------- |
+| NIPS                                              | [https://nips.cc/](https://nips.cc/)                         | 综合人工智能会议                                        | 5        |
+| ICML                                              | [https://icml.cc/](https://icml.cc/)                         | 机器学习会议                                            | 5        |
+| AAAI                                              | [https://aaai.org/](https://aaai.org/)                       | 美国人工智能协会                                        | 5        |
+| IJCAI                                             | [http://www.ijcai.org/](http://www.ijcai.org/)               | 人工智能综合会议                                        | 5        |
+| CCML                                              | [http://bdiri.gzu.edu.cn/ccml2019](http://bdiri.gzu.edu.cn/ccml2019) | 中国机器学习会议 2019                                   | 4        |
+| COLT                                              | [https://dblp.uni-trier.de/db/conf/colt/index](https://dblp.uni-trier.de/db/conf/colt/index) | 国际学习理论会议                                        |          |
+|                                                   |                                                              |                                                         |          |
+| KDD                                               | [https://www.kdd.org/](https://www.kdd.org/)                 | 顶级数据挖掘论文                                        | 5        |
+| ICDM                                              |                                                              |                                                         |          |
+| SIGIR                                             | [http://sigir.org/sigir2016/short-papers/](http://sigir.org/sigir2016/short-papers) | 顶级推荐系统论文                                        | 5        |
+|                                                   |                                                              |                                                         |          |
+| Journal of Machine Learning Research              |                                                              | 最重要的学术期刊                                        | 5        |
+| Machine Learning                                  |                                                              | 最重要的学术期刊                                        | 5        |
+| Artificial Intelligence                           |                                                              |                                                         |          |
+| Journal of Artificial Intelligence Research       |                                                              |                                                         |          |
+| ACM Transactions on Knowledge Discovery from Data |                                                              | 数据挖掘重要期刊                                        | 5        |
+| Annals of Statistics                              |                                                              | 统计学领域重要期刊                                      | 5        |
+|                                                   |                                                              |                                                         |          |
+|                                                   |                                                              |                                                         |          |
+|                                                   |                                                              |                                                         |          |
+| 中国计算机学会推荐国际学术会议和期刊目录-2019     | [中国计算机学会推荐国际学术会议和期刊目录-2019](./conference_resources/中国计算机学会推荐国际学术会议和期刊目录-2019.pdf) | [中国计算机学会](https://www.ccf.org.cn/)2019年推荐目录 |          |
