@@ -715,7 +715,10 @@ X * \hat{\omega}
 \\ 
 {x_{m 1}} & {x_{m 2}} & {\dots} & {x_{m d}} & {1}
 \end{array}\right) 
-*\left(\begin{array}{c}
+*
+\left(\begin{array}{c}{\omega_{1}} \\ {\omega_{2}} \\ {\vdots} \\ {\omega_{d}} \\ {b}\end{array}\right)
+=
+\left(\begin{array}{c}
 {\omega_{1} x_{11}+\omega_{2} x_{12}+\ldots \omega_{d} x_{1 d}+b} \\ 
 {\omega_{1} x_{21}+\omega_{2} x_{22}+\ldots \omega_{d} x_{2 d}+b} \\ 
 {\vdots} \\
