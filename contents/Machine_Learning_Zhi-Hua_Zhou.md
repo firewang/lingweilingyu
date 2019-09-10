@@ -607,7 +607,7 @@ $$
 
 
 
-## **3.2 线性回归**
+## 3.2 线性回归
 
 ​	给定数据集 $D=\{{(x_1,y_1),(x_2,y_2),\dots,(x_m,y_m)}\}$ ，其中 $x_i = (x_{i 1};x_{i 2};\dots x_{i d}), y \in \mathbb{R}$ 。“线性回归”(linear regression)试图学得一个线性模型以尽可能准确地预测实值输出标记。
 
@@ -777,3 +777,168 @@ f\left(\hat{\boldsymbol{x}}_{i}\right)=\hat{\boldsymbol{x}}_{i}^{\mathrm{T}}\lef
 $$
 
 对于现实任务中 $\mathbf{X}^{\mathrm{T}}\mathbf{X}$ 不是满秩矩阵的情况，此时可解出多个 $\hat{\omega}^{*}$，它们都能使均方误差最小化，选择哪一个解作为输出，将由学习算法的归纳偏好决定，常见的做法是引入正则化(regularization)项。
+
+
+
+### 3.2.3 广义线性模型
+
+generalized linear model 
+
+线性模型虽然简单，但却有丰富的变化。对于样例 $(\mathbf{x},y), y\in \mathbb{R}$ ，当我们希望线性模型（3.2）的预测值逼近真实标记 $y$ 时，就得到了线性回归模型，我们将模型简写为
+$$
+y = \mathbf{\omega}^{T} \mathbf{x} + b \tag{3.13}
+$$
+有时像上面这种原始的线性回归可能并不能满足需求，例如：$y$ 值并不是线性变化，而是在指数尺度上变化。这时我们可以采用线性模型来逼近 $y$ 的衍生物，例如 $\ln y$，这时衍生的线性模型如下所示，实际上就是相当于将指数曲线投影在一条直线上，如下图所示：
+$$
+\ln y = \mathbb{\omega}^{T} \mathbb{x} +b \tag{3.14}
+$$
+![generalized_linear_model](../static/img/generalized_linear_model.png)
+
+式3.14在形式上仍然式线性回归，但实质上已经式在求输入空间到输出空间的非线性函数映射。
+
+
+
+一般地，考虑所有 $y$ 的衍生物的情形，就得到了“广义的线性模型”（generalized linear model）
+$$
+y = g^{-1}(\mathbb{\omega}^{T}\mathbb{x}+b) \tag{3.15}
+$$
+其中，$g(\cdot)$ 单调可微（即连续且充分光滑），称为联系函数（link function）。
+
+
+
+## 3.3 对数几率回归
+
+线性模型可以应用于回归学习问题，利用上述广义线性模型的特征，是否可以通过一个联系函数，将预测值转化为离散值从而进行分类任务的学习呢？
+
+考虑二分类任务，其输出标记 $y\in \{0,1\}$ ，而线性回归模型产生的预测值 $z=\mathbf{\omega}^{T} \mathbf{x} + b$ 是实值，于是我们需要将其转化为 0/1，最理想的是"单位阶跃函数" (unit-step function)
+$$
+y=\left\{
+\begin{array}{cl}
+{0,} & {z<0} \\ 
+{0.5,} & {z=0} \\ 
+{1,} & {z>0}
+\end{array}\right. \tag{3.16}
+$$
+![unit_step_function](../static/img/unit_step_function.png)
+
+由上图可知单位阶跃函数不连续，因此不能作为广义线性模型中的联系函数，于是我们希望找到能在一定程度上近似单位阶跃函数的”替代函数“ (surrogate function)，并且它可以作为联系函数（单调可微），对数几率函数（logistic function）正是替代函数之一，可将预测值投影到 0-1之间，从而将线性回归问题转化为二分类问题。
+$$
+y=\frac{1}{1+e^{-z}} \tag{3.17}
+$$
+对数几率函数也是一种”Sigmoid 函数“ （即形似 S 的函数）。
+
+将式 3.17 代入式 3.15 即可得到
+$$
+y=\frac{1}{1+e^{-\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b\right)}} \tag{3.18}
+$$
+基于式 3.14的变换方式，可得到
+$$
+\ln \frac{y}{1-y}=\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b \tag{3.19}
+$$
+若将 $y$ 看做样本为正例的概率，$1-y$ 则为反例的概率，两者比值称为”几率“ (odds), 反映了样本作为正例的相对可能性。对几率取对数则得到”对数几率“ （log odds，亦称 logit）
+$$
+\frac{y}{1-y} \tag{3.20}
+$$
+
+$$
+\ln \frac{y}{1-y} \tag{3.21}
+$$
+
+
+
+由此可看出，式3.18 实际上是在用线性回归模型的预测结果取逼近真实标记的对数几率，因此这个模型称为“对数几率回归”（logistic regression，或 logit regression），即“逻辑回归”。它的优点在于直接对分类可能性进行建模，无需事先假设数据分布，这样就避免了假设分布不准确所带来的问题；不仅可以预测类别，也可得到近似概率预测；对数几率函数是任意阶可导的凸函数，现有的许多数值优化算法都可直接用于求取最优解。
+
+若将式3.18中的 $y$ 视为类后验概率估计 $p(y=1|x)$ ，则式3.19可重写为
+$$
+\ln \frac{p(y=1 | \boldsymbol{x})}{p(y=0 | \boldsymbol{x})}=\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b  \tag{3.22}
+$$
+因为 $p(y=1|x)+p(y=0|x)=1$ ，于是我们可以得到
+$$
+p(y=1 | \boldsymbol{x})=\frac{e^{\boldsymbol{w}^{\top} \boldsymbol{x}+b}}{1+e^{\boldsymbol{w}^{\top} \boldsymbol{x}+b}} \tag{3.23}
+$$
+
+$$
+p(y=0 | \boldsymbol{x})=\frac{1}{1+e^{\boldsymbol{w}^{\top} \boldsymbol{x}+b}} \tag{3.24}
+$$
+
+
+
+于是，可以使用极大似然估计的方法（maximum likelihood estimation, MLE）来计算出 $\omega $ 和 $b$ 两个参数
+
+对于给定的训练数据集 $D=\{(x_i,y_i)\}_{i=1}^{m}$ ，该数据集出现的概率（即似然函数）为
+$$
+\ell(\boldsymbol{\omega},b) = P(D) = \prod p(y_i | \boldsymbol{x_i} ; \boldsymbol{\omega},b)
+$$
+对似然函数取对数得到“对数似然”(log-likelihood)
+$$
+LL(\boldsymbol{w}, b)=\ln \ell(\boldsymbol{w}, b)=\sum_{i=1}^{m} \ln p\left(y_{i} | \boldsymbol{x}_{i} ; \boldsymbol{w}, b\right) \tag{3.25}
+$$
+极大似然最简单的理解就是：样本所展现的状态便是所有可能状态中出现概率最大的状态。即令每个样本属于其真实标记的概率越大越好。为便于讨论，令 $\boldsymbol{\beta} = (\boldsymbol{\omega},b), \boldsymbol{\hat{x}}=(\boldsymbol{x};1)$ ，则 $\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b = \boldsymbol{\beta}^{T} \boldsymbol{\hat{x}}$ ,  令 $p_1(\boldsymbol{\hat{x}};\boldsymbol{\beta}) = p(y=1|\boldsymbol{\hat{x}};\boldsymbol{\beta})$ , $p_0(\boldsymbol{\hat{x}};\boldsymbol{\beta}) = p(y=0|\boldsymbol{\hat{x}};\boldsymbol{\beta})=1-p_1(\boldsymbol{\hat{x}};\boldsymbol{\beta}) $ ， 于是似然项可以重写为
+$$
+p\left(y_{i} | \boldsymbol{x}_{i} ; \boldsymbol{w}, b\right)=y_{i} p_{1}\left(\hat{\boldsymbol{x}}_{i} ; \boldsymbol{\beta}\right)+\left(1-y_{i}\right) p_{0}\left(\hat{\boldsymbol{x}}_{i} ; \boldsymbol{\beta}\right) \tag{3.26}
+$$
+将式3.26，3.23，3.24带入式3.25，则可以转化式3.25为
+$$
+\begin{array}{cl}LL(\boldsymbol{\beta})&=\sum_{i=1}^{m} \ln(y_{i} p_{1}\left(\hat{\boldsymbol{x}}_{i} ; \boldsymbol{\beta}\right)+\left(1-y_{i}\right) p_{0}\left(\hat{\boldsymbol{x}}_{i} ; \boldsymbol{\beta}\right)) \\&=\sum_{i=1}^{m} \ln (y_i\frac{e^{\boldsymbol{\beta}^{T} \boldsymbol{\hat{x_i}}}}{1+e^{\boldsymbol{\beta}^{T} \boldsymbol{\hat{x_i}}}} + (1-y_i)\frac{1}{1+e^{\boldsymbol{\beta}^{T} \boldsymbol{\hat{x_i}}}} ) \\&=\sum_{i=1}^{m} \left(\ln (y_i e^{\boldsymbol{\beta}^{T} \boldsymbol{\hat{x_i}}}+1-y_i) - \ln(1+e^{\boldsymbol{\beta}^{T} \boldsymbol{\hat{x_i}}}) \right)\end{array}  \tag{3.26.1}
+$$
+将 $y_i \in \{0,1\}$ 代入得到
+$$
+LL(\boldsymbol{\beta}) = \left\{\begin{array}{ll}{\sum_{i=1}^{m}\left(-\ln \left(1+e^{\beta^{T} \hat{x_i}}\right)\right),} & {y_{i}=0} \\ {\sum_{i=1}^{m}\left(\boldsymbol{\beta}^{T} \hat{\boldsymbol{x}}_{i}-\ln \left(1+e^{\boldsymbol{\beta}^{T} \hat{x_i}}\right)\right),} & {y_{i}=1}\end{array}\right.  \tag{3.26.2}
+$$
+综合上式即可得到
+$$
+LL(\boldsymbol{\beta})=\sum_{i=1}^{m}\left(y_{i} \boldsymbol{\beta}^{T} \hat{\boldsymbol{x_i}}-\ln \left(1+e^{\boldsymbol{\beta}^{T} \hat{x_i}}\right)\right) \tag{3.27}
+$$
+这里得到的似然函数与原书相差一个负号，结果是一致的，因为对于似然函数（高阶可导连续凸函数）求最大值，即是求其相反数的最小值。根据凸优化理论，经典的数值优化算法如梯度下降法(gradient descent method)、牛顿法(Newton method)等都可求得其最优解，于是就得到
+$$
+\boldsymbol{\beta}^{*} = \underset{\beta}{\arg \min} \left(-LL(\beta)\right) \tag{3.28}
+$$
+
+## 3.4 线性判别分析
+
+[comment ]: <后续补充>
+
+## 3.5 多分类学习
+
+[comment ]: <后续补充>
+
+
+## 3.6 类别不平衡问题
+
+前面介绍的分类学习方法都有一个共同的基本假设，即不同类别的训练样例数目相当，如果不同类别的训练样例数目稍有差别，通常影响不大，但若差别很大，则会对学习过程造成困扰，例如有998个反例，但正例只有2个，那么学习方法只需返回一个永远将新样本预测为反例的学习器，就能达到99.8%的精度，然而这样的学习器往往没有价值，因为它不能预测出任何正例。
+
+类别不平衡（class-imbanlance）就是指分类问题中不同类别的训练样本相差悬殊的情况，常见的做法有三种：
+
+1. 在训练样本较多的类别中进行“欠采样”（under-sampling / down-sampling），即去除一些样本，比如从反例中采出100个，常见的算法有：EasyEnsemble，其利用集成学习机制，将反例划分为若干个集合供不同学习器使用，这样对每个学习器来看都进行了欠采样，但在全局来看不会丢失重要信息。
+2. 在训练样本较少的类别中进行“过采样”（oversampling / up-sampling），例如通过对正例中的数据进行插值，来产生额外的正例，常见的算法有SMOTE（Synthetic minority over-sampling technique）。
+3. 直接基于原数据集进行学习，对预测值进行“再缩放”(rescaling / re-balance)处理。其中再缩放也是代价敏感学习的基础。
+
+前两种方法都关注于对于数据样本进行均衡，而第三种方法则是关注于对预测结果进行均衡，称为“阈值移动” (threshold-moving)。
+
+以逻辑回归应用在二分类问题为例，当我们在用 $y=\omega^{T}x +b $ 对新样本进行预测的时候，事实上是在用预测出的 $y$ 值与阈值进行比较，对于逻辑回归而言，因为联系函数的分段点在 $y=0.5$ 的位置，即在几率大于 1 时判定为正例，反之为反例。
+$$
+\frac{y}{1-y} > 1 \quad,  \text{预测为正例}  \tag{3.46}
+$$
+但是当训练集中正/反例的数目不同时，令 $m^{+}$ 表示正例数目，$m^{-}$ 表示反例数目，则观测几率是 $\frac{m^{+}}{m^{-}}$ ，由于我们通常假设训练集是真实样本总体的无偏采样，因此观测几率就代表了真实几率，于是，只要分类器的预测几率高于观测几率就应判定为正例，即
+$$
+\frac{y}{1-y} > \frac{m^{+}}{m^{-}} \quad, \text{预测为正例}  \tag{3.47}
+$$
+由于分类器是基于式3.46 进行决策，因此需要对其结果进行调整，使其执行式3.47，于是我们只需要令
+$$
+\frac{y^{\prime}}{1-y^{\prime}}=\frac{y}{1-y} \times \frac{m^{-}}{m^{+}} \tag{3.48}
+$$
+这就是在决策过程中进行了再缩放。
+
+
+
+## 3.7 阅读材料
+
+“稀疏表示” (sparse representation) 近年来很受关注（详细见第十一章），但即便对多元线性回归这样简单的模型，获得具有最优“稀疏性” (sparsity)的解也并不容易。稀疏性问题本质上对应了 $L_0$ 范数的优化，这在通常条件下是NP难问题。 LASSO通过 $L_1$ 范数来近似 $L_{0}$ 范数，是求取稀疏解的重要技术。
+
+可以证明，OvO和 OvR 都是ECOC的特例[Allwein et al., 2000])，人们以往希望设计通用的编码法, [Crammer and Singer, 2002]提出要考虑问题本身的特点，设计“问题依赖”的编码法，并证明寻找最优的离散编码矩阵是一个NP完全问题，此后，有多种问题依赖的 ECOC编码法被提出，通常是通过找出具有代表性的二分类问题来进行编码，[Escalera et al., 2010]开发了一个开源ECOC库.
+
+MvM除了ECOC还可有其他实现方式，例如DAG (Directed Acyclic Graph)拆分法将类别划分表达成树形结构，每个结点对应于一个二类分类器，还有一些工作是致力于直接求解多分类问题，例如多类支持向量机方面的一些研究[Crammer and Singer, 2001; Lee et al, 2004])
+
+代价敏感学习中研究得最多的是基于类别的“误分类代价” (misclassification cost)， 代价矩阵如表2.2所示，在提及代价敏感学习时，默认指此类情形，已经证明，对二分类任务可通过“再缩放”获得理论最优解[Elkan,2001]，但对多分类任务，仅在某些特殊情形下存在闭式解[Zhouand Liu, 2006]。非均等代价和类别不平衡性虽然都可借助“再缩放”技术，但两者本质不同[Zhou and Liu, 2006b]。需注意的是，类别不平衡学习中通常是较小类的代价更高，否则无需进行特殊处理。
+
+多分类学习中虽然有多个类别，但每个样本仅属于一个类别，如果希望为一个样本同时预测出多个类别标记，例如一幅图像可同时标注为“蓝天”、“白云”、“羊群”、“自然场景” ，这样的任务就不再是多分类学习，而是“多标记学习” (multi-label learning)，这是机器学习中近年来相当活跃的一个研究领域。
