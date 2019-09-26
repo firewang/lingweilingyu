@@ -1150,3 +1150,19 @@ $$
 \begin{array}{cl}\operatorname{IV}(编号) &= -17*(1/17)* \log_2(1/17)= 4.087  \\\operatorname{IV}(色泽) &= -(6/17)* \log_2(6/17) -(6/17)*\log_2(6/17)-(5/17)*\log_2(5/17) =1.580\\\operatorname{IV}(根蒂) &= -(8/17)* \log_2(8/17) -(7/17)*\log_2(7/17)-(2/17)*\log_2(2/17)=1.402 \\\operatorname{IV}(敲声) &= -(10/17)* \log_2(10/17) -(5/17)*\log_2(5/17)-(2/17)*\log_2(2/17)=1.333 \\\operatorname{IV}(纹理) &= -(9/17)* \log_2(9/17) -(3/17)*\log_2(3/17)-(5/17)*\log_2(5/17) =1.447 \\\operatorname{IV}(脐部) &= -(7/17)* \log_2(7/17) -(6/17)*\log_2(6/17)-(4/17)*\log_2(4/17) =1.549\\\operatorname{IV}(触感) &= -(12/17)* \log_2(12/17) -(5/17)*\log_2(5/17)=0.874 \\\end{array}
 $$
 
+
+
+### 4.2.3 基尼指数
+
+CART（Classification and Regression Tree）决策树使用“基尼指数”（Gini index）来选择划分属性，基尼指数反映的是从样本集 $D$ 中随机抽取两个样本，其类别标记不一致的概率，因此 $\operatorname{Gini}(D)$ 越小越好，即数据集的纯度越高。数据集 $D$ 的基尼指数：
+$$
+\operatorname{Gini}(D) =\sum_{k=1}^{|y|} \sum_{k^{\prime} \neq k} p_{k} p_{k^{\prime}} =\sum_{k=1}^{|y|} p_{k}(1-p_{k})=1-\sum_{k=1}^{|y|} p_{k}^{2}  \tag{4.5}
+$$
+进而，使用属性 $a$ 划分后的基尼指数为：
+$$
+\operatorname{Gini\_index}(D, a)=\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \operatorname{Gini}\left(D^{v}\right)  \tag{4.6}
+$$
+于是，我们在候选属性集合 A 中，选择使得划分后基尼指数最小的属性作为最优划分属性即可，即
+$$
+a_* = \underset{a\in A}{\operatorname{arg min\;}} \operatorname{Gini\_index}(D,a)
+$$
