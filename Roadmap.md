@@ -67,12 +67,15 @@ Kaggle | [https://www.kaggle.com/](https://www.kaggle.com/)  | 全球数据科�
 ## X. 综合性资源
 资源 | 链接 | 备注 | 内容等级 
 :-- | :--: | :-- | :--:
+AI,ML,DS,BI | [virgili0/Virgilio/](https://github.com/virgili0/Virgilio/)  [在线预览](https://virgili0.github.io/Virgilio/) | Virgilio(拉丁:守护之意) | 5
 机器学习路径 | [JustFollowUs/Machine-Learning](https://github.com/JustFollowUs/Machine-Learning) | 南京大学LAMDA实验组推荐 | 4
 深度学习路径 | [JustFollowUs/Deep-Learning](https://github.com/JustFollowUs/Deep-Learning) | 南京大学LAMDA实验组推荐 | 4 
 AI 算法工程师手册 | [http://www.huaxiaozhuan.com/](http://www.huaxiaozhuan.com/) | 华校专：阿里、智易算法工程师 | 4
 简明数据科学学习路径 | [https://github.com/virgili0/Virgilio](https://github.com/virgili0/Virgilio) | 职业、技术、工具 | 4
 简明机器学习课程 | [machinelearningmindset/machine-learning-course](https://github.com/machinelearningmindset/machine-learning-course) | github源 | 
 南瓜书PumpkinBook|[datawhalechina/pumpkin-book](https://github.com/datawhalechina/pumpkin-book)| 西瓜书公式推导|3
+徐亦达教授讲义|[machine-learning-notes](https://github.com/roboticcam/machine-learning-notes)| 悉尼科技大学（UTS）徐亦达教授，机器学习，概率模型和深度学习的讲义 |3
+黄海光博士Github|[黄海光博士](https://github.com/fengdu78)| 吴恩达、李航、数据科学类学习笔记 |4
 Pycharm说明文档|[https://www.jetbrains.com/help/pycharm/sync-with-a-remote-repository.html](https://www.jetbrains.com/help/pycharm/sync-with-a-remote-repository.html)| 英文说明文档 |
 
 ## XI. 会议期刊
