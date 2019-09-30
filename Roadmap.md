@@ -100,3 +100,9 @@ Pycharm说明文档|[https://www.jetbrains.com/help/pycharm/sync-with-a-remote-r
 |                                                   |                                                              |                                                         |          |
 |                                                   |                                                              |                                                         |          |
 | 中国计算机学会推荐国际学术会议和期刊目录-2019     | [中国计算机学会推荐国际学术会议和期刊目录-2019](./conference_resources/中国计算机学会推荐国际学术会议和期刊目录-2019.pdf) | [中国计算机学会](https://www.ccf.org.cn/)2019年推荐目录 |          |
+
+## XII. 重点机构
+机构 | 链接 | 备注
+:-- | :--: | :--
+蒙特利尔.AI学院 | [https://montrealartificialintelligence.com/academy/](https://montrealartificialintelligence.com/academy/) | AI全景（领域、算法、工具） 
+                 |                                                              |                            
