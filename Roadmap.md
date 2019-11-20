@@ -25,7 +25,7 @@
 机器学习100天| | [MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code) | ||
 | | | ||
 特征工程| 图灵 | [《特征工程入门与实践》](http://www.ituring.com.cn/book/2606) [英文版github](https://github.com/PacktPublishing/Feature-Engineering-Made-Easy) | ||锡南·厄兹代米尔（Sinan Ozdemir）：数据科学家、数学家、约翰·霍普金斯大学讲师，Kylie.ai公司联合创始人、CTO，在应用数据挖掘、功能分析和算法开发做出基于数据和知识的决策方面拥有丰富的经验
-| | | ||
+tf2.0| 新加坡国立大学 | [Deep-Learning-with-TensorFlow-book_zh](https://github.com/dragen1860/TensorFlow-2.x-Tutorials) | ||Jackie Loong（龙良曲），曾为新加坡国立大学助理研究员
 
 ## 业务知识
 * [通用思维方式 ](https://github.com/firewang/lingweilingyu/blob/master/contents/%E4%BA%92%E8%81%94%E7%BD%91%E6%96%B9%E6%B3%95%E8%AE%BA.md)
