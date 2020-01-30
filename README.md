@@ -17,6 +17,7 @@ pandas read_html() 爬取表格类型的网页数据 | [weatherCrawler/weatherCr
 《机器学习》--周志华 | [Machine Learning](./contents/Machine_Learning_Zhi-Hua_Zhou.md) |
 sklearn顶层设计思路 | [sklearn.md](contents/sklearn.md) |
 SQL笔试50题 | [sql50](https://github.com/firewang/sql50) |SQL Server
+读《高效阅读》 | [高效阅读](contents/20minutes_reading.md) |
 
 ​    
 
