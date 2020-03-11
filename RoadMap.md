@@ -13,7 +13,6 @@
 [凸优化1](https://lagunita.stanford.edu/courses/Engineering/CVX101/Winter2014/about)| Stanford | [Convex Optimization](http://www.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) | [链接](http://stanford.edu/class/ee364a/index.html)||
 [凸优化2](https://www.youtube.com/watch?v=U3lJAObbMFI&list=PL3940DD956CDF0622&index=20)| Stanford | 暂无 |  [链接](http://stanford.edu/class/ee364b/)||
 [统计学习入门](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about)| Stanford | [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) | [链接](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about)||
-统计学| 中国人民大学 |  |             统计学（第六版) ,  统计学（第七版）              ||贾俊平
 
 
 ## 技术知识
@@ -76,7 +75,6 @@ AI 算法工程师手册 | [http://www.huaxiaozhuan.com/](http://www.huaxiaozhua
 简明机器学习课程 | [machinelearningmindset/machine-learning-course](https://github.com/machinelearningmindset/machine-learning-course) | github源 | 
 南瓜书PumpkinBook|[datawhalechina/pumpkin-book](https://github.com/datawhalechina/pumpkin-book)| 西瓜书公式推导|3
 徐亦达教授讲义|[machine-learning-notes](https://github.com/roboticcam/machine-learning-notes)| 悉尼科技大学（UTS）徐亦达教授，机器学习，概率模型和深度学习的讲义 |3
-李宏毅教授|http://speech.ee.ntu.edu.tw/~tlkagk/| 台大，ML和DL |4
 黄海光博士Github|[黄海光博士](https://github.com/fengdu78)| 吴恩达、李航、数据科学类学习笔记 |4
 Pycharm说明文档|[https://www.jetbrains.com/help/pycharm/sync-with-a-remote-repository.html](https://www.jetbrains.com/help/pycharm/sync-with-a-remote-repository.html)| 英文说明文档 |
 
