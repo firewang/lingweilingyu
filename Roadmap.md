@@ -24,7 +24,6 @@
 [机器学习技法](https://www.coursera.org/instructor/htlin)| NTU | 暂无 | [链接](https://www.csie.ntu.edu.tw/~htlin/course/ml15fall/)||
 [机器学习](https://www.youtube.com/watch?v=mbyG85GZ0PI&index=1&list=PLD63A284B7615313A)| Caltech | [Learning from Data](https://www.amazon.com/gp/product/1600490069) | [链接](http://work.caltech.edu/lectures.html)||
 机器学习100天| | [MLEveryday/100-Days-Of-ML-Code](https://github.com/MLEveryday/100-Days-Of-ML-Code) | ||
-| | | ||
 特征工程| 图灵 | [《特征工程入门与实践》](http://www.ituring.com.cn/book/2606) [英文版github](https://github.com/PacktPublishing/Feature-Engineering-Made-Easy) | ||锡南·厄兹代米尔（Sinan Ozdemir）：数据科学家、数学家、约翰·霍普金斯大学讲师，Kylie.ai公司联合创始人、CTO，在应用数据挖掘、功能分析和算法开发做出基于数据和知识的决策方面拥有丰富的经验
 tf2.0| 新加坡国立大学 | [Deep-Learning-with-TensorFlow-book_zh](https://github.com/dragen1860/TensorFlow-2.x-Tutorials) | ||Jackie Loong（龙良曲），曾为新加坡国立大学助理研究员
 
@@ -50,14 +49,27 @@ tf2.0| 新加坡国立大学 | [Deep-Learning-with-TensorFlow-book_zh](https://g
 :-- | :--: | :--
 Kaggle | [https://www.kaggle.com/](https://www.kaggle.com/)  | 全球数据科学社区 
 天池|[https://tianchi.aliyun.com/home/](https://tianchi.aliyun.com/home/)|阿里云数据科学社区 
+KDD-CUP|https://www.kdd.org/|KDD 
+ DataFountain     |                 https://www.datafountain.cn/                 | CCF                      
+ 腾讯广告算法大赛 |                     https://algo.qq.com/                     | 腾讯                     
+DataCastle|                  https://www.pkbigdata.com/                  |DC 
+FlyAI|https://www.flyai.com/| 
+之江杯|http://www.zhejianglab.com/|之江实验室 
+AI Challenger||创新工场、搜狗和今日头条 
+**经典算法类**|| 
+ACM-ICPC|http://acmicpc.info/|国际计算机协会ACM 
+Google Code Jam|https://g.co/codingcompetitions <br /> https://g.co/codejam|GCJ 
+hackercup|https://www.facebook.com/hackercup|Facebook 
+TCO||Topcoder 
+百度之星|http://star.baidu.com/| 
+编程之美|http://studentclub.msra.cn/|微软 
+软件精英挑战赛|https://competition.huaweicloud.com/|华为 
 
 ## 数据支撑
 
 | 数据集                                                       | 领域 | 类目 | 备注 |
 | ------------------------------------------------------------ | ---- | ---- | ---- |
 | [加州大学欧文分校机器学习数据库](http://archive.ics.uci.edu/ml/index.php) | 综合 | 综合 |      |
-|                                                              |      |      |      |
-|                                                              |      |      |      |
 
 ## 职业规划
 
@@ -90,20 +102,15 @@ Pycharm说明文档|[https://www.jetbrains.com/help/pycharm/sync-with-a-remote-r
 | IJCAI                                             | [http://www.ijcai.org/](http://www.ijcai.org/)               | 人工智能综合会议                                        | 5        |
 | CCML                                              | [http://bdiri.gzu.edu.cn/ccml2019](http://bdiri.gzu.edu.cn/ccml2019) | 中国机器学习会议 2019                                   | 4        |
 | COLT                                              | [https://dblp.uni-trier.de/db/conf/colt/index](https://dblp.uni-trier.de/db/conf/colt/index) | 国际学习理论会议                                        |          |
-|                                                   |                                                              |                                                         |          |
 | KDD                                               | [https://www.kdd.org/](https://www.kdd.org/)                 | 顶级数据挖掘论文                                        | 5        |
 | ICDM                                              |                                                              |                                                         |          |
 | SIGIR                                             | [http://sigir.org/sigir2016/short-papers/](http://sigir.org/sigir2016/short-papers) | 顶级推荐系统论文                                        | 5        |
-|                                                   |                                                              |                                                         |          |
 | Journal of Machine Learning Research              |                                                              | 最重要的学术期刊                                        | 5        |
 | Machine Learning                                  |                                                              | 最重要的学术期刊                                        | 5        |
 | Artificial Intelligence                           |                                                              |                                                         |          |
 | Journal of Artificial Intelligence Research       |                                                              |                                                         |          |
 | ACM Transactions on Knowledge Discovery from Data |                                                              | 数据挖掘重要期刊                                        | 5        |
 | Annals of Statistics                              |                                                              | 统计学领域重要期刊                                      | 5        |
-|                                                   |                                                              |                                                         |          |
-|                                                   |                                                              |                                                         |          |
-|                                                   |                                                              |                                                         |          |
 | 中国计算机学会推荐国际学术会议和期刊目录-2019     | [中国计算机学会推荐国际学术会议和期刊目录-2019](./conference_resources/中国计算机学会推荐国际学术会议和期刊目录-2019.pdf) | [中国计算机学会](https://www.ccf.org.cn/)2019年推荐目录 |          |
 | 中国计算机学会推荐中文科技期刊目录-2019           | [中国计算机学会中文科技期刊目录-2019](./conference_resources/中国计算机学会推荐中文科技期刊目录-2019.pdf) | [中国计算机学会CCF](https://www.ccf.org.cn/)            |          |
 
@@ -111,4 +118,3 @@ Pycharm说明文档|[https://www.jetbrains.com/help/pycharm/sync-with-a-remote-r
 机构 | 链接 | 备注
 :-- | :--: | :--
 蒙特利尔.AI学院 | [https://montrealartificialintelligence.com/academy/](https://montrealartificialintelligence.com/academy/) | AI全景（领域、算法、工具） 
-                 |                                                              |                            
