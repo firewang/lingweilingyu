@@ -1919,3 +1919,283 @@ SVR回归（support vector regression）与SVM分类的区别在于，SVR的样�
 
 
 
+# 第七章 贝叶斯分类器
+
+贝叶斯分类器是一种概率框架下的统计学习分类器，对分类任务而言，假设在相关概率都已知的情况下，贝叶斯分类器考虑如何基于这些概率为样本判定最优的类标。
+
+贝叶斯公式(定理)：设 $A_{1}, A_{2}, \ldots, A_{n}$ 为样本空间的一个划分, $B$ 为 S 中的任意事件, 且 $P(B)>0,$ 则恒有
+$$
+P\left(A_{i} \mid B\right)=P\left(A_{i}\right) P\left(B \mid A_{i}\right) / \sum_{j=1}^{n} P\left(A_{j}\right) P\left(B \mid A_{j}\right)
+\\
+i=1,2,\dots,n
+$$
+该公式的含义是在观察到事件B已发生的条件下，寻找导致B发生的每个原因($A_i$)的概率。
+
+
+
+## 7.1 贝叶斯决策论
+
+贝叶斯决策论(Bayesian decision theory)是概率框架下实施决策的基本方法。对分类任务来说, 在所有相关概率都已知的理想情形下，贝叶斯决策论考虑如何基于这些概率和误判损失来选择最优的类别标记。
+
+假设有 $N$ 种可能的类别标记, 即 $\mathcal{Y}=\left\{c_{1}, c_{2}, \ldots, c_{N}\right\}, \lambda_{i j}$ 是将一个真实标记为 $c_{j}$ 的样本误分类为 $c_{i}$ 所产生的损失。基于后验概率 $P\left(c_{i} \mid \boldsymbol{x}\right)$ 可获得将样本 $x$ 分类为 $c_{i}$ 所产生的期望损失(expected loss)，即在样本 $x$ 上的“条件风险”(conditional risk)
+$$
+R\left(c_{i} \mid \boldsymbol{x}\right)=\sum_{j=1}^{N} \lambda_{i j} P\left(c_{j} \mid \boldsymbol{x}\right) \tag{7.1}
+$$
+我们的任务是寻找一个判定准则 $h: \mathcal{X} \mapsto \mathcal{Y}$ 以最小化总体风险
+
+
+$$
+R(h)=\mathbb{E}_{\boldsymbol{x}}[R(h(\boldsymbol{x}) \mid \boldsymbol{x})] \tag{7.2}
+$$
+
+即寻找一个判定准则最小化所有样本的条件风险总和，因此就有了**贝叶斯判定准则**（Bayes decision rule）:为最小化总体风险，只需在每个样本上选择那个使得条件风险最小的类标。
+$$
+h^{*}(\boldsymbol{x})=\underset{c \in \mathcal{Y}}{\arg \min } R(c \mid \boldsymbol{x})  \tag{7.3}
+$$
+此时，$h^{*}$ 称为贝叶斯最优分类器(Bayes optimal classifier)，与之对应的总体风险 $R\left(h^{*}\right)$ 称为贝叶斯风险(Bayes risk). $1-R\left(h^{*}\right)$ 反映了分奖器所能达到的最好性能，即通过机器学习所能产生的**模型精度的理论上限**。
+
+
+
+具体来说，如若损失函数 $\lambda$ 取0-1损失，则有：
+$$
+\lambda_{i j}=\left\{\begin{array}{ll}
+0, & \text { if } i=j \\
+1, & \text { otherwise }
+\end{array}\right.    \tag{7.4}
+$$
+此时条件风险
+$$
+R(c \mid \boldsymbol{x})=1-P(c \mid \boldsymbol{x})  \tag{7.5}
+$$
+于是，最小化分类错误率的贝叶斯最优分类器为
+$$
+h^{*}(\boldsymbol{x})=\underset{c \in \mathcal{Y}}{\arg \max } P(c \mid \boldsymbol{x})  \tag{7.6}
+$$
+即对于每个样本 $x$，选择其 后验概率 $P(c \mid \boldsymbol{x})$  最大所对应的类标，能使得总体风险函数最小，从而将原问题转化为估计后验概率$P(c \mid \boldsymbol{x})$。然而, 在现实任务中这通常难以直接获得。从这个（概率）角度来看, 机器学习（有些机器学习技术无需估计后验概率就能准确分类）所要实现的是基于有限的训练样本集尽可能准确地估计出后验概率 $P(c \mid \boldsymbol{x}) $ 。大体来说，主要有两种策略来对后验概率进行估计：
+
+1. 给定 $\boldsymbol{x},$ 可通过直接建模 $P(c \mid \boldsymbol{x})$ 来 预测 $c$, 这样得到的是“判别式模型”(discriminative models); (决策树、BP 神经网络、支持向量机等, 都可归入判别式模型的范畴)
+2. 可先对联合概率分布 $P(\boldsymbol{x}, c)$ 建模, 然后再由此获得 $P(c \mid \boldsymbol{x}),$ 这样得到的是“生成式模型”(generative models). （贝叶斯分类器）
+
+对于生成模型来说，必然考虑贝叶斯定理：
+$$
+P(c \mid \boldsymbol{x})=\frac{P(\boldsymbol{x}, c)}{P(\boldsymbol{x})}=\frac{P(c) P(x \mid \boldsymbol{c})}{P(\boldsymbol{x})} \tag{7.7}
+$$
+
+
+其中, 
+
++ $P(c)$ 是类“先验”(prior)概率，表达了样本空间中各类样本所占的比例, 根据大数定律, 当训练集包含充足的独立同分布样本时, $P(c)$ 可通过各类样本出现的频率来进行估计; 
++ $P(\boldsymbol{x} \mid c)$ 是样本 $x$ 相对于类标记 $c$ 的类条件概率(class-conditional probability), 或称为“似然” (likelihood);
++ $P(\boldsymbol{x})$ 是 用于归一化的“证据”(evidence)因子。对给定样本 $x,$ 证据因子 $P(\boldsymbol{x})$ 与类标记无关(对所有类标记相同)。因此估计 $P(c \mid x)$ 的问题就转化为如何基于训练数据 $D$ 来估计先验 $P(c)$ 和似然 $P(\boldsymbol{x} \mid c)$ 。 
+
+实际上先验概率就是在没有任何结果出来的情况下估计的概率，而后验概率则是在有一定依据后的重新估计，直观意义上后验概率就是条件概率。
+
+对类条件概率 $P(\boldsymbol{x} \mid c)$  来说，由于涉及关于 $x$ 所有属性的联合概率，直接根据样本出现的频率来估计是非常困难的。例如, 假设样本的 d 个属性都是二值的, 则样本空间将有  $2^{d}$ 种可能的取值, 在现实应用中, 这个值往往远大于训练样本数 m, 也就是说, 很多样本取值在训练集中根本没有出现, 直接使用频率来估计 $P(\boldsymbol{x} \mid$ c) 显然不可行, 因为“未被观测到”与“出现概率为 ”零” 通常是不同的。一种常用的策略是先假定类条件概率具有某种确定的概率分布形式，再基于训练样本对概率分布的参数进行估计。
+
+## 7.2 极大似然法
+
+源自频率学派的极大似然估计（Maximum Likelihood Estimation，简称MLE），是一种根据数据采样来估计概率分布的经典方法。（频率主义学派(Frequentist)认为参数虽然未知, 但却是客观存在的固定值, 因此, 可通过优化似然函数等准则来确定参数值）
+
+具体地, 记关于类别 c 的类条件概率为 $P(\boldsymbol{x} \mid c),$ 假设 $P(\boldsymbol{x} \mid c)$ 具有确定的形式并且被参数向量 $\boldsymbol{\theta}_{c}$ 唯一确定, 则我们的任务就是利用训练集 $D$ 估计参数 $\boldsymbol{\theta}_{c} .$ 为明确起见, 我们将 $P(\boldsymbol{x} \mid c)$ 记为 $P\left(\boldsymbol{x} \mid \boldsymbol{\theta}_{c}\right)$。
+
+极大似然法的核心思想就是：在参数的所有可能取值当中，找到能使已知样本出现的概率（可能性）最大的值，即使得训练数据的似然最大的参数值。
+
+令 $D_{c}$ 表示训练集 $D$ 中第 $c$ 类样本组成的集合, 假设这些样本是独立同分布的, 则参数 $\boldsymbol{\theta}_{c}$ 对于数据集 $D_{c}$ 的似然是
+$$
+P\left(D_{c} \mid \boldsymbol{\theta}_{c}\right)=\prod_{\boldsymbol{x} \in D_{c}} P\left(\boldsymbol{x} \mid \boldsymbol{\theta}_{c}\right)   \tag{7.9}
+$$
+对 $\theta_{c}$ 进行极大似然估计, 就是去寻找能最大化似然 $P\left(D_{c} \mid \boldsymbol{\theta}_{c}\right)$ 的参数值 $\hat{\boldsymbol{\theta}}_{c} .$ 
+式(7.9)中的连乘操作易造成下溢, 通常使用对数似然(log-likelihood)
+$$
+\begin{aligned}
+L L\left(\boldsymbol{\theta}_{c}\right) &=\log P\left(D_{c} \mid \boldsymbol{\theta}_{c}\right) \\
+&=\sum_{\boldsymbol{x} \in D_{c}} \log P\left(\boldsymbol{x} \mid \boldsymbol{\theta}_{c}\right)
+\end{aligned}   \tag{7.10}
+$$
+
+此时参数 $\theta_{c}$ 的极大似然估计 $\hat{\theta}_{c}$ 为
+$$
+\hat{\boldsymbol{\theta}}_{c}=\underset{\boldsymbol{\theta}_{c}}{\arg \max } L L\left(\boldsymbol{\theta}_{c}\right)   \tag{7.11}
+$$
+例如, 在连续属性情形下, 假设概率密度函数 $p(\boldsymbol{x} \mid c) \sim \mathcal{N}\left(\boldsymbol{\mu}_{c}, \boldsymbol{\sigma}_{c}^{2}\right),$ 则参数 $\mu_{c}$ 和 $\sigma_{c}^{2}$ 的极大似然估计为
+$$
+\hat{\boldsymbol{\mu}}_{c}=\frac{1}{\left|D_{c}\right|} \sum_{\boldsymbol{x} \in D_{c}} \boldsymbol{x} 
+\tag{7.12}
+$$
+
+$$
+\hat{\boldsymbol{\sigma}}_{c}^{2}=\frac{1}{\left|D_{c}\right|} \sum_{\boldsymbol{x} \in D_{c}}\left(\boldsymbol{x}-\hat{\boldsymbol{\mu}}_{c}\right)\left(\boldsymbol{x}-\hat{\boldsymbol{\mu}}_{c}\right)^{\mathrm{T}}  \tag{7.13}
+$$
+
+也就是说, 通过极大似然法得到的正态分布均值就是样本均值, 方差就是 $\left(\boldsymbol{x}-\hat{\boldsymbol{\mu}}_{c}\right)\left(\boldsymbol{x}-\hat{\boldsymbol{\mu}}_{c}\right)^{\mathrm{T}}$ 的均值, 这显然是一个符合直觉的结果。在离散属性情形下 , 也可通过类似的方式估计类条件概率。
+
+所以，贝叶斯分类器的训练过程就是参数估计。总结最大似然法估计参数的过程，一般分为以下四个步骤：
+
+	* 1.写出似然函数；
+	* 2.对似然函数取对数，并整理；
+	* 3.求导数，令偏导数为0，得到似然方程组；
+	* 4.解似然方程组，得到所有参数即为所求。
+
+
+
+需注意的是, 这种参数化的方法能使类条件概率估计变得相对简单, 但估计结果的准确性严重依赖于所假设的概率分布形式是否符合潜在的真实数据分布。在现实应用中, 欲做出能较好地接近潜在真实分布的假设, 往往需在一定程度上利用关于**应用任务本身的经验知识**, 否则若仅凭“猜测”来假设概率分布形式, 很可能产生误导性的结果.
+
+
+
+## 7.3 朴素贝叶斯分类器
+
+不难看出：原始的贝叶斯分类器（上述公式7.7）估计后验概率的困难点在于类条件概率是所有属性的联合概率，首先需要根据经验来假设联合概率分布；其次当属性很多时，训练样本往往覆盖不够，参数的估计会出现很大的偏差。为了避免这个问题，朴素贝叶斯分类器（naive Bayes classifier）采用了“属性条件独立性假设”(attribute conditional independence assumption)，即**样本数据的所有属性之间相互独立**。这样类条件概率 $P(\boldsymbol{x} \mid c)$ 可以改写为：
+$$
+P(\boldsymbol{x} \mid c)=\cdot \prod_{i=1}^{d} P\left(x_{i} \mid c\right)
+$$
+其中 d 为属性数目, $x_{i}$ 为 $x$ 在第 $i$ 个属性上的取值(实际上是属性-值 形式的键值对)
+
+
+
+由于对所有类别来说 $P(\boldsymbol{x})$ 相同, 因此基于式(7.6)的贝叶斯判定准则有
+$$
+h_{n b}(\boldsymbol{x})=\underset{c \in \mathcal{Y}}{\arg \max } P(c) \prod_{i=1}^{d} P\left(x_{i} \mid c\right)   \tag{7.15}
+$$
+这就是朴素贝叶斯分类器的表达式。
+
+显然, 朴素贝叶斯分类器的训练过程就是基于训练集 $D$ 来估计类先验概率$P(c),$ 并为每个属性估计条件概率 $P\left(x_{i} \mid c\right) .$ 令 $D_{c}$ 表示训练集 $D$ 中第 $c$ 类样本组成的集合, 若有充足的独立同分布样本, 则可容易地估计出类先验概率
+$$
+P(c)=\frac{\left|D_{c}\right|}{|D|} \tag{7.16}
+$$
+
+
+这样，为每个样本估计类条件概率变成为每个样本的每个属性估计类条件概率。$D_{c, x_{i}}$ 表示 $D_{c}$ 中在第 $i$ 个属性上取值为 $x_{i}$ 的样本组成的集合。
+
+![10.png](https://i.loli.net/2018/10/18/5bc83fd6678cd.png)
+
+
+
+相比原始贝叶斯分类器，朴素贝叶斯分类器基于单个的属性计算类条件概率更加容易操作，需要注意的是：若某个属性值在训练集中和某个类别没有一起出现过，这样会抹掉其它的属性信息，因为该样本的类条件概率被计算为0。
+
+例如，在使用西瓜数据集 3.0 训练朴素贝叶斯分类器时, 对一个“ 敲声=清脆”的测试例，有
+$$
+P_{\text {清脆|是 }}=P(\text { 敲声 }=\text { 清脆 } \mid \text { 好瓜 }=\text { 是 })=\frac{0}{8}=0
+$$
+由于式( $7.15)$ 的连乘式计算出的概率值为零, 因此, 无论该样本的其他属性是什么, 哪怕在其他属性上明显像好瓜, 分类的结果都将是“好瓜=否”, 这显然不太合理。
+
+因此在估计概率值时，常常进行平滑（smoothing）处理，拉普拉斯修正（Laplacian correction）就是其中的一种经典方法，具体来说，令$N$表示训练集$D$中可能的类别数， $N_{i}$表示第$i$个属性可能的取值数：
+$$
+\hat{P}(c)=\frac{\left|D_{c}\right|+1}{|D|+N}  \tag{7.19}
+$$
+
+$$
+\hat{P}\left(x_{i} \mid c\right)=\frac{\left|D_{c, x_{i}}\right|+1}{\left|D_{c}\right|+N_{i}} \tag{7.20}
+$$
+
+当训练集越大时，拉普拉斯修正引入的影响越来越小。拉普拉斯修正实质上假设了属性值与类别均匀分布, 这是在朴素贝叶斯学习过程中额外引入的关于数据的先验.
+
+在现实任务中朴素贝叶斯分类器有多种使用方式。例如, 若任务对预测速度要求较高, 则对给定训练集, 可将朴素贝叶斯分类器涉及的所有概率估值事先计算好存储起来, 这样在进行预测时只需“查表”即可进行判别; 若任务数据更替频繁, 则可采用“懒惰学习” (lazy learning) 方式, 先不进行任何训练,待收到预测请求时再根据当前数据集进行概率估值; 若数据不断增加, 则可在现有估值基础上, 仅对新增样本的属性值所涉及的概率估值进行计数修正即可实现增量学习。
+
+针对朴素贝叶斯，人们觉得它too sample，sometimes too naive！因此又提出了半朴素的贝叶斯分类器，具体有SPODE、TAN、贝叶斯网络等来刻画属性之间的依赖关系。
+
+一个例子：
+
+用西瓜数据集 3.0 训练一个朴素贝叶斯分奖器，
+$$
+\begin{array}{cccccccccc}\hline \text { 编号 } & \text { 色泽 } & \text { 根蒂 } & \text { 敲声 } & \text { 纹理 } & \text { 卑部 } & \text { 触感 } & \text { 密度 } & \text { 含糖率 } & \text { 好瓜 } \\ \hline \text { 测 } 1 & \text { 青绿 } & \text { 惠统 } & \text { 沖响 } & \text { 清晰 } & \text { 凹陷 } & \text { 硬滑 } & 0.697 & 0.460 & ? \\ \hline\end{array}
+$$
+可得类先验概率为
+$$
+P_{\text {好瓜|是 }}=\frac{8}{17}
+\\
+P_{\text {好瓜|否}}=\frac{9}{17}
+$$
+然后是每个属性的条件概率 $P(x_i \mid c)$
+$$
+\begin{array}{cl}
+P_{\text {青绿|是 }}
+&=P(\text { 色泽 }=\text { 青绿 } \mid \text { 好瓜 }=\text { 是 })=\frac{3}{8}
+\\
+P_{\text {青绿| 否 }}
+&=P(\text { 色泽 }=\text { 青绿 } \mid \text { 好瓜 }=\text { 否 })=\frac{3}{9}
+\\
+P_{\text {蜷缩|是 }}
+&=P(\text { 根蒂 }=\text { 蜷缩 } \mid \text { 好瓜 }=\text { 是 })=\frac{5}{8}
+\\
+P_{\text {蜷缩|否 }}
+&=P(\text { 根蒂 }=\text { 蜷缩 } \mid \text { 好瓜 }=\text { 否 })=\frac{3}{9}
+\\
+P_{\text {浊响|是 }}
+&=P(\text { 敲声 }=\text { 浊响 } \mid \text { 好瓜 }=\text { 是 })=\frac{6}{8}
+\\
+P_{\text {浊响|否 }}
+&=P(\text { 敲声 }=\text { 浊响 } \mid \text { 好瓜 }=\text { 否 })=\frac{4}{9}
+\\
+P_{\text {清晰|是 }}
+&=P(\text { 纹理 }=\text { 清晰 } \mid \text { 好瓜 }=\text { 是 })=\frac{7}{8}
+\\
+P_{\text {清晰|否 }}
+&=P(\text { 纹理 }=\text { 清晰 } \mid \text { 好瓜 }=\text { 否 })=\frac{2}{9}
+\\
+P_{\text {凹陷|是 }}
+&=P(\text { 脐部 }=\text { 凹陷 } \mid \text { 好瓜 }=\text { 是 })=\frac{6}{8}
+\\
+P_{\text {凹陷|否 }}
+&=P(\text { 脐部 }=\text { 凹陷 } \mid \text { 好瓜 }=\text { 否 })=\frac{2}{9}
+\\
+P_{\text {触感|是 }}
+&=P(\text { 触感 }=\text { 硬滑 } \mid \text { 好瓜 }=\text { 是 })=\frac{6}{8}
+\\
+P_{\text {触感|否 }}
+&=P(\text { 触感 }=\text { 硬滑 } \mid \text { 好瓜 }=\text { 否 })=\frac{6}{9}
+\\
+p_{\text {密度：0.697|是 }}
+&=p(\text { 密度 }=0.697 \mid \text { 好瓜 }=\text { 是 })=\frac{1}{\sqrt{2\pi}·0.129 }exp\left( -\frac{(0.697-0.574)^2}{2·0.129^2}\right) \approx 1.959
+\\
+p_{\text {密度：0.697|否 }}
+&=p(\text { 密度 }=0.697 \mid \text { 好瓜 }=\text { 是 })=\frac{1}{\sqrt{2\pi}·0.195 }exp\left( -\frac{(0.697-0.496)^2}{2·0.195^2}\right) \approx 1.203
+\\
+p_{\text {含糖：0.460|是 }}
+&=p(\text { 含糖率 }=0.460 \mid \text { 好瓜 }=\text { 是 })=\frac{1}{\sqrt{2\pi}·0.101 }exp\left( -\frac{(0.460-0.279)^2}{2·0.101^2}\right) \approx 0.788
+\\
+p_{\text {含糖：0.460|否 }}
+&=p(\text { 含糖率 }=0.460 \mid \text { 好瓜 }=\text { 是 })=\frac{1}{\sqrt{2\pi}·0.108}exp\left( -\frac{(0.460-0.154)^2}{2·0.108^2}\right) \approx 0.066
+\end{array}
+$$
+于是
+$$
+\begin{array}{cl}
+&P_{\text {好瓜|是 }} \times P_{\text {青绿|是 }}\times P_{\text {蜷缩|是 }}\times P_{\text {浊响|是 }}\times P_{\text {清晰|是 }}\times P_{\text {凹陷|是 }}\times P_{\text {硬滑|是 }}\times p_{\text {密度:0.697|是 }}\times p_{\text {含糖:0.460|是 }}
+\approx 0.038
+\\
+&P_{\text {好瓜|否}} \times P_{\text {青绿|否 }}\times P_{\text {蜷缩|否 }}\times P_{\text {浊响|否 }}\times P_{\text {清晰|否 }}\times P_{\text {凹陷|否 }}\times P_{\text {硬滑|否 }}\times p_{\text {密度:0.697|否 }}\times p_{\text {含糖:0.460|否 }}
+\approx 6.80\times 10^{-5}
+\end{array}
+$$
+
+
+
+
+## 7.4 半朴素贝叶斯分类器
+
+为了降低贝叶斯公式(7.7)中估计后验概率 $P(c \mid x)$ 的困难, 朴素贝叶斯分类器采用了属性条件独立性假设, 但在现实任务中这个假设往往很难成立。于是, 人们尝试对属性条件独立性假设进行一定程度的放松, 由此产生了一类称为“半朴素贝叶斯分类器” (semi-naive Bayes classifiers)的学习方法。
+
+半朴素贝叶斯分类器的基本想法是适当考虑一部分属性间的相互依赖信息, 从而既不需进行完全联合概率计算, 又不至于彻底忽略了比较强的属性依赖关系。“独依赖估计” (One-Dependeht Estimator, 简称 ODE)是半朴素贝叶斯分类器最常用的一种策略。 顾名思议, 所谓“独依赖”就是假设每个属性在类别之外最多仅依赖于一个其他属性, 即
+$$
+P(c \mid \boldsymbol{x}) \propto P(c) \prod_{i=1}^{d} P\left(x_{i} \mid c, p a_{i}\right)  \tag{7.21}
+$$
+其中 $p a_{i}$ 为属性 $x_{i}$ 所依赖的属性, 称为 $x_{i}$ 的父属性。此时, 对每个属性 $x_{i},$ 若其父属性 $p a_{i}$ 已知, 则可采用类似式 (7.20) 的办法来估计概率值 $P\left(x_{i} \mid c, p a_{i}\right)$ 。于是, 问题的关键就转化为如何确定每个属性的父属性, 不同的做法产生不同的独依赖分类器。
+
+
+
+## 7.5 贝叶斯网络
+
+
+
+## 7.6 EM算法
+
+
+
+## 7.7 阅读材料
+
+
+
+
+
+
+
