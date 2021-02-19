@@ -2430,7 +2430,7 @@ JC, FMI, RI 的取值范围都在[0,1]，数值越大则聚类效果越好。
 
 内部指标不依赖任何外部模型，直接对聚类的结果进行评估：**簇内高内聚紧紧抱团，簇间低耦合易分离**。考虑聚类结果的簇划分$C=\{C_1,C_2,\dots,C_k\}$, 定义：
 
-![internal_index.png](D:/ProjectHome/lingweilingyu/static/img/5bc84ed581852.png)
+![internal_index.png](../static/img/5bc84ed581852.png)
 
 其中，$dist(\cdot , \cdot)$ 用于计算两个样本间的距离，$\mu$ 代表簇 C 中心点。基于上面的四个距离，可以导出下面这些常用的内部评价指标：
 
@@ -2457,7 +2457,7 @@ $$
 
 https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation
 
-![silhouette_score.png](D:/ProjectHome/lingweilingyu/static/img/d5wCNfWca2vPLrl.png)
+![silhouette_score.png](../static/img/d5wCNfWca2vPLrl.png)
 
 [轮廓系数( Silhouette coefficient)](https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient)适用于实际类别信息未知的情况。对于单个样本, a是它与它同类别中其他样本的平均距离, b是与它距离最近不同类别中样本的平均距离。对于一个样本集合, 它的轮廓系数是所有样本轮廓系数的平均值。
 
@@ -2479,7 +2479,7 @@ https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-e
 
 http://www.lunarnai.cn/2017/04/08/watermelon-chap-9/
 
-![9_2.png](D:/ProjectHome/lingweilingyu/static/img/5bc84ed4c0390.png)
+![9_2.png](../static/img/5bc84ed4c0390.png)
 
 最常用的距离度量方法是**“闵可夫斯基距离”（Minkowski distance)**：
 $$
@@ -2487,11 +2487,11 @@ dist_{mk}(x_i,x_j)=(\sum_{u=1}^n|x_{iu}-x_{ju}|^p)^{\frac{1}{p}}
 $$
 当p=1时，闵可夫斯基距离即**曼哈顿距离（Manhattan distance）**：
 
-![9_3.png](D:/ProjectHome/lingweilingyu/static/img/5bc84ed49c31f.png)
+![9_3.png](../static/img/5bc84ed49c31f.png)
 
 当p=2时，闵可夫斯基距离即**欧氏距离（Euclidean distance）**：
 
-![9_4.png](D:/ProjectHome/lingweilingyu/static/img/5bc84ed497613.png)
+![9_4.png](../static/img/5bc84ed497613.png)
 
 ### 9.3.2 距离度量的选择
 
@@ -2502,13 +2502,13 @@ $$
 
 **连续属性和存在序关系的离散属性都可以直接参与计算**，而不存在序关系的**无序属性，我们一般采用VDM（Value Difference Metric）进行距离的计算**，例如：令 $m_{u, a}$ 表示在属性 $u$ 上取值为 $a$ 的样本数, $m_{u, a, i}$ 表示在第 $i$ 个样本簇中在属性 u 上取值为 $a$  的样本数, k 为样本簇数, 则属性 $u$ 上两个离散值 $a$ 与 $b$ 之间的 VDM 距离为：
 
-![9_5.png](D:/ProjectHome/lingweilingyu/static/img/5bc84ed4e9560.png)
+![9_5.png](../static/img/5bc84ed4e9560.png)
 
 VDM距离刻画的是属性取值在各簇上的频率分布之间的差异。
 
 在计算两个样本之间的距离时，假定有 n~c~ 个有序属性、n-n~c~个无序属性,不失一般性,令**有序属性**排列在**无序属性**之前, 则我们可以将闵可夫斯基距离和VDM混合在一起进行计算：
 
-![9_6.png](D:/ProjectHome/lingweilingyu/static/img/5bc84ed507bc7.png)
+![9_6.png](../static/img/5bc84ed507bc7.png)
 
 
 
@@ -2516,7 +2516,7 @@ VDM距离刻画的是属性取值在各簇上的频率分布之间的差异。
 
 例如在某些任务中我们可能希望有这样的相似度度量:“人”“马”分别与“人马”相似,但“人”与“马”很不相似;要达到这个目的,可以令“人”“马”与“人马”之间的距离都比较小,但“人”与“马”之间的距离很大,此时该距离不再满足直递性;这样的距离称为“非度量距离”(non- metric distance)。
 
-![non-metric distance](D:/ProjectHome/lingweilingyu/static/img/egkjxJKzRhsqP67.png)
+![non-metric distance](../static/img/egkjxJKzRhsqP67.png)
 
 
 
@@ -2540,7 +2540,7 @@ $$
 
 K-Means的算法流程如下所示：
 
-![kmeans_algorithm.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb9c0817.png)
+![kmeans_algorithm.png](../static/img/5bc84fb9c0817.png)
 
 
 ### 9.4.2 学习向量量化（LVQ）
@@ -2552,7 +2552,7 @@ LVQ（Learning Vector Quantization）也是基于原型的聚类算法，与K-Me
 
 LVQ算法的流程如下所示：
 
-![13.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb9d59f2.png)
+![13.png](../static/img/5bc84fb9d59f2.png)
 
 第5行是竞争学习的“胜者为王”策略。**SOM是基于无标记样本的聚类算法，而LVQ可看作SOM基于监督信息的扩展。**
 
@@ -2563,27 +2563,27 @@ LVQ算法的流程如下所示：
 
 对于多维高斯分布，其概率密度函数如下所示：
 
-![9_8.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb870d98.png)
+![9_8.png](../static/img/5bc84fb870d98.png)
 
 其中 $\mu$ 表示均值向量，∑~n×n~ 表示协方差矩阵，可以看出一个多维高斯分布完全由这两个参数所确定。接着定义高斯混合分布为：
 
-![9_9.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb876794.png)
+![9_9.png](../static/img/5bc84fb876794.png)
 
 α 称为混合系数（mixture coefficient），这样空间中样本的采集过程则可以抽象为：**（1）先选择一个类簇（高斯分布），（2）再根据对应高斯分布的密度函数进行采样**，这时候贝叶斯公式又能大展身手了：
 
-![9_10.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb9191d9.png)
+![9_10.png](../static/img/5bc84fb9191d9.png)
 
 此时只需要选择PM最大时的类簇并将该样本划分到其中，看到这里很容易发现：通过贝叶斯公式展开，然后计算类先验概率和类条件概率。但遗憾的是：**这里没有真实类标信息，对于类条件概率，并不能像贝叶斯分类那样通过最大似然法美好地计算出来**，因为这里的样本可能属于所有的类簇，这里的似然函数变为：
 
-![9_11.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb871d4a.png)
+![9_11.png](../static/img/5bc84fb871d4a.png)
 
 可以看出：简单的最大似然法根本无法求出所有的参数，这样PM也就没法计算。**这里采用EM算法迭代优化求解**，首先对高斯分布的参数及混合系数进行随机初始化，计算出各个PM（即γ~ji~，第i个样本属于j类），再最大化似然函数（即LL（D）分别对α、u和∑求偏导 ），对参数进行迭代更新。
 
-![9_12.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb8a6f32.png)
+![9_12.png](../static/img/5bc84fb8a6f32.png)
 
 高斯混合聚类的算法流程如下图所示：
 
-![9_13.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb9c4fa4.png)
+![9_13.png](../static/img/5bc84fb9c4fa4.png)
 
 
 ## 9.5 密度聚类
@@ -2592,13 +2592,13 @@ LVQ算法的流程如下所示：
 
 对于给定数据集 $D= \left \{x _{1},x_{2},...,x_{m}\right \}$
 
-![9_14.png](D:/ProjectHome/lingweilingyu/static/img/5bc84fb9bd69c.png)
+![9_14.png](../static/img/5bc84fb9bd69c.png)
 
-![9_15.png](D:/ProjectHome/lingweilingyu/static/img/5bc8509f8d619.png)
+![9_15.png](../static/img/5bc8509f8d619.png)
 
 简单来理解DBSCAN：**找出一个核心对象所有密度可达的样本集合形成簇**。首先从数据集中任选一个核心对象A，找出所有A密度可达的样本集合，将这些样本形成一个密度相连的类簇，直到所有的核心对象都遍历完。DBSCAN算法的流程如下图所示：
 
-![9_16.png](D:/ProjectHome/lingweilingyu/static/img/5bc8509feb587.png)
+![9_16.png](../static/img/5bc8509feb587.png)
 
 
 ## 9.6 层次聚类
@@ -2614,21 +2614,21 @@ LVQ算法的流程如下所示：
 
 	* 单链接（single-linkage）:取类间最小距离。
 
-![9_17.png](D:/ProjectHome/lingweilingyu/static/img/5bc8509ebb022.png)
+![9_17.png](../static/img/5bc8509ebb022.png)
 
 	* 全链接（complete-linkage）:取类间最大距离
 
-![9_18.png](D:/ProjectHome/lingweilingyu/static/img/5bc8509eb2b30.png)
+![9_18.png](../static/img/5bc8509eb2b30.png)
 
 	* 均链接（average-linkage）:取类间两两的平均距离
 
-![9_19.png](D:/ProjectHome/lingweilingyu/static/img/5bc8509f089a7.png)
+![9_19.png](../static/img/5bc8509f089a7.png)
 
 很容易看出：**单链接的包容性极强，全链接则是坚持到底，只要存在缺点就坚决不合并，均连接则是从全局出发顾全大局**。
 
 层次聚类法的算法流程如下所示：
 
-![9_20.png](D:/ProjectHome/lingweilingyu/static/img/5bc8509f9d4a0.png)
+![9_20.png](../static/img/5bc8509f9d4a0.png)
 
 
 
